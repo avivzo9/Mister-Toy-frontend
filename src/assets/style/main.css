@@ -1,0 +1,15 @@
+/* cmps */
+
+@import './cmps/toy-list.css';
+@import './cmps/toy-filter.css';
+
+/* views */
+
+@import './views/toy-details.css';
+@import './views/app.css';
+@import './views/toy.css';
+@import './views/home.css';
+
+/* general */
+
+@import './base.css';

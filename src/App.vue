@@ -1,32 +1,26 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="app">
+    <div class="nav-container container">
+      <div class="nav sub-container">
+        <h1>Mister Toy</h1>
+        <div class="nav-content">
+          <router-link class="link" to="/">Home</router-link> |
+          <router-link class="link" to="/toy">Toys</router-link> |
+          <router-link class="link" to="/edit">Add toy</router-link> |
+          <router-link class="link" to="/about">About</router-link>
+        </div>
+      </div>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+export default {
+  name: "app",
+  methods: {},
+  created() {
+    this.$store.dispatch({ type: "loadToys" });
+  },
+};
+</script>
