@@ -1,11 +1,16 @@
 <template>
-  <div class="home">
-    <h1>Mister Toy</h1>
+  <div class="home-container container" @click="goToToys">
+    <div class="home sub-container"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
-}
+  name: "home",
+  methods: {
+    goToToys() {
+      this.$router.push('/toy')
+    }
+  }
+};
 </script>

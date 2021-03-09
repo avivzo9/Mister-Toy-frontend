@@ -1,0 +1,45 @@
+.shop-branchers-container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    border-top: 1px solid #DCDFE6;
+    width: 100%;
+}
+
+.shop-branchers-container h3 {
+    margin: 30px;
+}
+
+.shop-branchers-container ul {
+    display: flex;
+    padding-inline-start: 0;
+}
+
+.shop-branchers-container ul li {
+    border: 1px solid #DCDFE6;
+    cursor: pointer;
+    margin: 5px;
+    background-color: rgba(0, 128, 128, 0.9);
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.shop-branchers-container ul li:hover {
+    filter: brightness(115%);
+}
+
+.about {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about>* {
+    margin: 1em;
+}
+
+.about h1 {
+    margin: 5px;
+}

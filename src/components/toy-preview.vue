@@ -23,6 +23,11 @@ export default {
     sendRemove(id) {
       this.$emit("remove-toy", id);
     },
+    sendToDetails(toy) {
+    console.log('toy:', toy)
+    // <router-link class="link" :to="'/toy/' + toy._id">🧸</router-link>
+    this.$router.push(`/toy/' + ${toy._id}`)
+    }
   },
 };
 </script>

@@ -10,6 +10,22 @@ export default ({
             search: null
         }
     },
+    getters: {
+        getToysTypes(state) {
+            var types = [];
+            state.toys.forEach(({ type }) => {
+                if (!types.includes(type)) types.push(type)
+            })
+            return types;
+        },
+        getToysPrices(state) {
+            var prices = [];
+            state.toys.forEach(({ price }) => {
+                if (!prices.includes(price)) prices.push(price)
+            })
+            return prices;
+        },
+    },
     mutations: {
         setToys(state, { toys }) {
             state.toys = toys;

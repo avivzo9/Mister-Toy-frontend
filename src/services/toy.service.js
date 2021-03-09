@@ -3,8 +3,7 @@ import axios from 'axios'
 
 const KEY = 'toy'
 const TOY_URL = (process.env.NODE_ENV !== 'development') ?
-    '/api/toy' : '//http://localhost:3030/api/toy/';
-// const TOY_URL = 'http://localhost:3030/api/toy/'
+    '/api/toy' : 'http://localhost:3030/api/toy/';
 
 export const toyService = {
     query,
@@ -17,7 +16,6 @@ export const toyService = {
 function query(filter) {
     return axios.get(TOY_URL, { params: filter })
         .then(res => {
-            console.log('res.data:', res.data)
             return res.data
         })
 }

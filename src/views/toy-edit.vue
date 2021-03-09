@@ -1,39 +1,40 @@
 <template>
-  <div class="toy-edit-container" v-if="toyToEdit">
+  <section class="toy-edit-container container" v-if="toyToEdit">
+    <div class="toy-edit sub-container">
       <h1>Toy edit</h1>
-      <form @submit.prevent="saveToy">
-        <input ref="toyName" type="text" v-model="toyToEdit.name" placeholder="Toy name">
-        <input type="number" v-model="toyToEdit.price" placeholder="Toy price">
-        <input type="text" v-model="toyToEdit.type" placeholder="Toy type">
-        <button>Save</button>
-      </form>
-  </div>
+      <validation @save-toy="saveToy" :toyToEdit="toyToEdit" />
+    </div>
+  </section>
 </template>
 
 <script>
-
-import {toyService} from '../services/toy.service.js'
+import { toyService } from "../services/toy.service.js";
+import validation from "../components/validation";
 
 export default {
-    name: 'edit-toy',
-    data() {
-        return {
-            toyToEdit: null 
-        }
+  name: "edit-toy",
+  data() {
+    return {
+      toyToEdit: null,
+    };
+  },
+  methods: {
+    saveToy(toy) {
+      console.log("toy:", toy);
+      //   const toy = this.toyToEdit;
+      this.$store
+        .dispatch({ type: "saveToy", toy })
+        .then(() => this.$router.push("/toy"));
     },
-    methods:{
-        saveToy() {
-            const toy = this.toyToEdit
-            this.$store.dispatch({type: 'saveToy', toy})
-                .then(() => this.$router.push('/toy'))
-        }
-    },
-    created() {
-        const id = this.$route.params.toyId
-        if (id) {
-            toyService.getToyById(id)
-                .then(toy => this.toyToEdit = toy)
-        } else this.toyToEdit = toyService.getEmptyToy()
-    },
-}
+  },
+  created() {
+    const id = this.$route.params.toyId;
+    if (id) {
+      toyService.getToyById(id).then((toy) => (this.toyToEdit = toy));
+    } else this.toyToEdit = toyService.getEmptyToy();
+  },
+  components: {
+    validation,
+  },
+};
 </script>

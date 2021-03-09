@@ -1,31 +1,34 @@
 <template>
   <div class="filter sub-container">
-    <input type="search" placeholder="Search" @keyup="sendFilter" v-model="filterBy.searchWord" />
-    <select @change="sendFilter" v-model="filterBy.sortBy">
-      <option value="name">Name</option>
-      <option value="price">Price</option>
-    </select>
-      <input name="stock" type="checkbox" @change="sendFilter" v-model="filterBy.stockFilter">
-      <label for="stock">stock</label>
+    <input type="search" class="search-toy" placeholder="Search" @keyup="sendFilter" v-model="filterBy.searchWord" />
+      <select-filter @sorted="sendFilter" />
+    <input id="stock" type="checkbox" @change="sendFilter" v-model="filterBy.stockFilter" />
+    <label for="stock">In Stock</label>
   </div>
 </template>
 
 <script>
+import selectFilter from "./select-filter.vue"
+
 export default {
   data() {
     return {
       filterBy: {
-        sortBy: 'name',
+        sortBy: "name",
         searchWord: null,
-        stockFilter: false
-      }
+        stockFilter: false,
+      },
     };
   },
   methods: {
-    sendFilter() {
+    sendFilter(sort) {
+      this.filterBy.sortBy = sort
       const filter = this.filterBy;
       this.$store.dispatch({ type: "setFilter", filter });
     },
+  },
+  components: {
+    selectFilter,
   },
 };
 </script>

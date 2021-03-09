@@ -14,7 +14,7 @@
 }
 
 .toy-list ul li {
-    border: 1px solid rgba(128, 128, 128, 0.5);
+    border: 1px solid #DCDFE6;
     background-color: rgb(231, 230, 223);
     border-radius: 20px;
     padding: 1em;
@@ -39,8 +39,11 @@
     border: none;
     background-color: inherit;
     font-size: 17px;
+    transition: 0.3s;
+    border-radius: 10px;
 }
 
 .toy-details-buttons>*:hover {
     filter: brightness(85%);
+    box-shadow: 0 0 10px 0px black;
 }

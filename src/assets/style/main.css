@@ -8,7 +8,10 @@
 @import './views/toy-details.css';
 @import './views/app.css';
 @import './views/toy.css';
+@import './views/toy-edit.css';
+@import './views/about.css';
 @import './views/home.css';
+@import './views/dashboard.css';
 
 /* general */
 
