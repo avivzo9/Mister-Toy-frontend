@@ -1,0 +1,36 @@
+.filter {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px;
+     :first-child {
+        input {
+            margin: 5px;
+        }
+    }
+     :last-child {
+        input[type=checkbox] {
+            display: none;
+        }
+        label {
+            cursor: pointer;
+            font-size: 20px;
+            &:hover {
+                color: $clr1;
+                border-bottom: 2px solid $clr2;
+            }
+            &:active {
+                color: blue;
+            }
+        }
+    }
+}
+
+.search-toy {
+    width: 217px;
+    padding: 11.4px;
+    border: 1px solid #DCDFE6;
+     ::placeholder {
+        color: #6062666c;
+    }
+}

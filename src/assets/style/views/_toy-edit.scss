@@ -1,0 +1,42 @@
+.toy-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button {
+        padding: 1.07em;
+        margin: 7px;
+    }
+    .valid {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .valid-error {
+            background-color: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        >* {
+            transition: 0.5s;
+            padding: 1em;
+            margin: 7px;
+        }
+    }
+    h1 {
+        margin: 20px;
+        margin-top: 60px;
+    }
+    .toy-edit-form {
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.edit-inputs {
+    >* {
+        margin: 7px;
+        padding: 1em;
+        border: 1px solid #DCDFE6;
+    }
+}

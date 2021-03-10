@@ -5,16 +5,16 @@
       <GmapMap
         ref="mapRef"
         :center="{ lat: 32.0853, lng: 34.781769 }"
-        :zoom="6"
+        :zoom="mapZoom"
         map-type-id="terrain"
-        style="width: 600px; height: 360px"
+        class="my-google-map"
       >
         <GmapMarker
           :key="index"
           v-for="(m, index) in markers"
           :position="m.position"
           :clickable="true"
-          :draggable="true"
+          :draggable="false"
           @click="center = m.position"
         />
       </GmapMap>
@@ -36,6 +36,7 @@
 export default {
   data() {
     return {
+      mapZoom: 6,
       markers: [
         { position: { lat: 32.0853, lng: 34.781769 } },
         { position: { lat: 32.105952, lng: 35.185114 } },
@@ -49,6 +50,7 @@ export default {
       this.$refs.mapRef.$mapPromise.then((map) => {
         map.panTo({ lat: loc.position.lat, lng: loc.position.lng});
       });
+      this.mapZoom = 12;
     }
   },
 };

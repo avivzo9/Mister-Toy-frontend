@@ -1,20 +1,44 @@
 <template>
-  <validation-provider rules="required" v-slot="{ errors }">
-    <div class="edit-inputs flex">
-      <input type="text" validate v-model="toyToEdit.name" placeholder="Toy name">
-      <input type="number" validate v-model="toyToEdit.price" placeholder="Toy price">
-      <input type="text" validate v-model="toyToEdit.type" placeholder="Toy type">
-      <button @click="sendSaveToy">Save</button>
-    </div>
-  <span class="valid-error">{{ errors[0] }}</span>
-</validation-provider>
-    
+  <div>
+    <ValidationObserver v-slot="{ invalid }">
+      <form @submit.prevent="sendSaveToy" class="toy-edit-form flex">
+        <validation-provider class="valid flex" rules="required" v-slot="{ errors }">
+          <input
+            type="text"
+            validate
+            v-model="toyToEdit.name"
+            placeholder="Toy name"
+          />
+          <span class="valid-error">{{ errors[0] }}</span>
+        </validation-provider>
+        <validation-provider class="valid flex" rules="required" v-slot="{ errors }">
+          <input
+            type="number"
+            validate
+            v-model="toyToEdit.price"
+            placeholder="Toy price"
+          />
+          <span class="valid-error">{{ errors[0] }}</span>
+        </validation-provider>
+        <validation-provider class="valid flex" rules="required" v-slot="{ errors }">
+          <input
+            type="text"
+            validate
+            v-model="toyToEdit.type"
+            placeholder="Toy type"
+          />
+          <span class="valid-error">{{ errors[0] }}</span>
+        </validation-provider>
+        <button :disabled="invalid">Save</button>
+      </form>
+    </ValidationObserver>
+  </div>
 </template>
 
 <script>
 import { extend } from "vee-validate";
 import { required } from "vee-validate/dist/rules";
-import { ValidationProvider } from "vee-validate";
+import { ValidationProvider, ValidationObserver } from "vee-validate";
 
 extend("required", {
   ...required,
@@ -22,16 +46,16 @@ extend("required", {
 });
 
 export default {
-  props: ['toyToEdit'],
+  props: ["toyToEdit"],
   components: {
     ValidationProvider,
+    ValidationObserver,
   },
   methods: {
     sendSaveToy() {
-      console.log('saved!');
-      this.$emit('save-toy', this.toyToEdit)
-    }
-  }
+      this.$emit("save-toy", this.toyToEdit);
+    },
+  },
 };
 </script>
 

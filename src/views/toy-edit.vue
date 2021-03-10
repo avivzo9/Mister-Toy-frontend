@@ -10,6 +10,7 @@
 <script>
 import { toyService } from "../services/toy.service.js";
 import validation from "../components/validation";
+import { Message } from "element-ui";
 
 export default {
   name: "edit-toy",
@@ -20,11 +21,12 @@ export default {
   },
   methods: {
     saveToy(toy) {
-      console.log("toy:", toy);
-      //   const toy = this.toyToEdit;
-      this.$store
-        .dispatch({ type: "saveToy", toy })
-        .then(() => this.$router.push("/toy"));
+      this.$store.dispatch({ type: "saveToy", toy })
+        .then(() => {
+          Message.success('open1')
+          this.$router.push("/toy");
+        })
+        .catch(() => Message.error('Colud\'nt save toy, please try again later.'))
     },
   },
   created() {

@@ -1,9 +1,13 @@
 <template>
   <section class="dashboard-container container">
-      <price-dashboard v-if="types && prices"
-      :types="types"
-      :prices="prices"
-      class="dashboard flex" />
+    <div class="sub-container">
+      <price-dashboard
+        v-if="types && prices"
+        :types="types"
+        :prices="prices"
+        class="dashboard flex"
+      />
+    </div>
   </section>
 </template>
 
@@ -13,11 +17,11 @@ import inventoryDashboard from "../components/inventory-dashboard";
 export default {
   computed: {
     types() {
-      return this.$store.getters.getToysTypes
+      return this.$store.getters.getToysTypes;
     },
     prices() {
-      return this.$store.getters.getToysPrices
-    }
+      return this.$store.getters.getToysPrices;
+    },
   },
   components: {
     priceDashboard,

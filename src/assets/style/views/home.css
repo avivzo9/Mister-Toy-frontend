@@ -1,9 +1,0 @@
-.home-container {
-    height: 90%;
-    background-image: url('../.././/img/toy-shop.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-}

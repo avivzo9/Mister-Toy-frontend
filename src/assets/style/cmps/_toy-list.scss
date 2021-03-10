@@ -1,0 +1,57 @@
+.toy-list-container {
+    flex-direction: column;
+}
+
+.toy-list {
+    flex-direction: column;
+    ul {
+        justify-content: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(4, 250px);
+        grid-template-columns: repeat(auto, 20px);
+        gap: 3em;
+        padding-inline-start: 0;
+        margin-bottom: 3em;
+        li {
+            border: 1px solid #DCDFE6;
+            color: $clr1;
+            background-color: $clr3;
+            border-radius: 20px;
+            padding: 1em;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            >* {
+                margin: 3px;
+            }
+            small {
+                margin: 7px;
+            }
+            &:hover {
+                filter: brightness(85%);
+            }
+        }
+    }
+}
+
+.toy-details-buttons {
+    justify-content: center;
+    align-items: center;
+    >* {
+        color: $clr2;
+        padding: 5px;
+        border: none;
+        background-color: inherit;
+        font-size: 25px;
+        transition: 0.3s;
+        border-radius: 10px;
+        &:hover {
+            filter: brightness(115%);
+            box-shadow: 0 0 10px 0px black;
+        }
+    }
+}

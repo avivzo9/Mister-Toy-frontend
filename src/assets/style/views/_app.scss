@@ -2,31 +2,36 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+    color: $clr1;
     height: 100vh;
     display: block;
-    border-bottom: 1px solid #DCDFE6;
+    font-family: sticky;
 }
 
 .nav-container {
     display: flex;
     height: 10%;
     border-bottom: 1px solid #DCDFE6;
+    .menu {
+        display: none;
+        font-size: 30px;
+    }
 }
 
 .nav {
     justify-content: space-between;
     align-items: center;
     display: flex;
-    width: 1300px;
     padding: 30px;
-}
-
-.nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-.nav a.router-link-exact-active {
-    color: #42b983;
+    width: 100%;
+    a {
+        font-weight: bold;
+        color: $clr2;
+        &:hover {
+            color: $clr1;
+        }
+    }
+    a.router-link-exact-active {
+        color: $clr1;
+    }
 }
