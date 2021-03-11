@@ -15,18 +15,18 @@
 </template>
 
 <script>
+import { Message } from 'element-ui';
 import toyFilter from "./toy-filter.vue";
 import toyPreview from "./toy-preview.vue";
 
 export default {
+  props: ['toys'],
   methods: {
     removeToy(id) {
-      this.$store.dispatch({ type: "removeToy", id });
-    },
-  },
-  computed: {
-    toys() {
-      return this.$store.state.toyStore.toys;
+      console.log('id:', id)
+      this.$store.dispatch({ type: "removeToy", id })
+        .then(() => Message.success('Toy has been deleted!'))
+        .catch(() => Message.error('Colud\'nt delete toy, please try again later.'))
     },
   },
   components: {

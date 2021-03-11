@@ -8,7 +8,7 @@
       <div class="toy-details-buttons flex">
         <router-link class="link font-size" :to="'/edit/' + toy._id">🖊</router-link>
         |
-        <router-link class="link" :to="'/toy/' + toy._id">🧸</router-link>
+        <router-link class="link" :to="'/toy/' + toy._id"><font-awesome-icon icon="user-secret" /></router-link>
         |
         <button class="font-size" @click="sendRemove(toy._id)">🗑</button>
       </div>
@@ -25,7 +25,6 @@ export default {
     },
     sendToDetails(toy) {
     console.log('toy:', toy)
-    // <router-link class="link" :to="'/toy/' + toy._id">🧸</router-link>
     this.$router.push(`/toy/' + ${toy._id}`)
     }
   },

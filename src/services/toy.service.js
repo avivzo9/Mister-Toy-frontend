@@ -1,9 +1,8 @@
 import { utilService } from './util.service.js'
-import axios from 'axios'
+// import axios from 'axios'
+import { httpService } from './http.service.js'
 
-const KEY = 'toy'
-const TOY_URL = (process.env.NODE_ENV !== 'development') ?
-    '/api/toy' : 'http://localhost:3030/api/toy/';
+const KEY = 'toy/'
 
 export const toyService = {
     query,
@@ -14,28 +13,24 @@ export const toyService = {
 }
 
 function query(filter) {
-    return axios.get(TOY_URL, { params: filter })
-        .then(res => {
-            return res.data
-        })
+    return httpService.get(KEY, { params: filter })
 }
 
 function getToyById(id) {
-    return axios.get(TOY_URL + id).then(res => res.data)
+    return httpService.get(KEY + id)
 }
 
 function remove(id) {
-    return axios.delete(TOY_URL + id).then(res => res.data)
+    return httpService.delete(KEY + id)
 }
 
 function save(toy) {
-    if (toy._id) return axios.put(TOY_URL, toy).then(res => res.data)
-    else return axios.post(TOY_URL, toy).then(res => res.data)
+    if (toy._id) return httpService.put(KEY, toy)
+    else return httpService.post(KEY, toy)
 }
 
 function getEmptyToy(name, price = 100, type, inStock = true) {
     return {
-        _id: '',
         name,
         price,
         type,

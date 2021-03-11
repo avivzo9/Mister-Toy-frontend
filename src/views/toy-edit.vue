@@ -21,9 +21,10 @@ export default {
   },
   methods: {
     saveToy(toy) {
+      console.log('toy: from front', toy)
       this.$store.dispatch({ type: "saveToy", toy })
         .then(() => {
-          Message.success('open1')
+          Message.success('Toy has been saved!')
           this.$router.push("/toy");
         })
         .catch(() => Message.error('Colud\'nt save toy, please try again later.'))

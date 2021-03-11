@@ -1,7 +1,7 @@
 <template>
   <div class="toy-container container">
       <h1>Our Toys!</h1>
-      <toy-list />
+      <toy-list :toys="toys" />
     </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   name: "toy",
   components: {
     toyList,
+  },
+  computed: {
+    toys() {
+      return this.$store.state.toyStore.toys;
+    },
   },
 };
 </script>
