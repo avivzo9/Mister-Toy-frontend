@@ -21,19 +21,24 @@ export default {
   },
   methods: {
     saveToy(toy) {
-      console.log('toy: from front', toy)
-      this.$store.dispatch({ type: "saveToy", toy })
+      console.log("toy: from front", toy);
+      this.$store
+        .dispatch({ type: "saveToy", toy })
         .then(() => {
-          Message.success('Toy has been saved!')
+          Message.success("Toy has been saved!");
           this.$router.push("/toy");
         })
-        .catch(() => Message.error('Colud\'nt save toy, please try again later.'))
+        .catch(() =>
+          Message.error("Colud'nt save toy, please try again later.")
+        );
     },
   },
   created() {
     const id = this.$route.params.toyId;
     if (id) {
-      toyService.getToyById(id).then((toy) => (this.toyToEdit = toy));
+      toyService.getToyById(id).then((toy) => {
+        this.toyToEdit = toy;
+      });
     } else this.toyToEdit = toyService.getEmptyToy();
   },
   components: {

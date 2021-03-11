@@ -23,7 +23,6 @@ export default {
   props: ['toys'],
   methods: {
     removeToy(id) {
-      console.log('id:', id)
       this.$store.dispatch({ type: "removeToy", id })
         .then(() => Message.success('Toy has been deleted!'))
         .catch(() => Message.error('Colud\'nt delete toy, please try again later.'))
