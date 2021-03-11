@@ -27,6 +27,7 @@ export default {
   },
   created() {
     this.$store.dispatch({ type: "loadToys" });
+    this.$store.dispatch({ type: "loadUsers" });
   },
 };
 </script>

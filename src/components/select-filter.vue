@@ -21,7 +21,7 @@
           label: 'Price'
         }, 
         ],
-        sortBy: ''
+        sortBy: null
       }
     },
     methods: {

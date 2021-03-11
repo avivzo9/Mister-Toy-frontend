@@ -22,8 +22,7 @@ export default {
   methods: {
     saveToy(toy) {
       console.log("toy: from front", toy);
-      this.$store
-        .dispatch({ type: "saveToy", toy })
+      this.$store.dispatch({ type: "saveToy", toy })
         .then(() => {
           Message.success("Toy has been saved!");
           this.$router.push("/toy");

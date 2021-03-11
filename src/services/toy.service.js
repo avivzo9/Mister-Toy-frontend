@@ -11,8 +11,12 @@ export const toyService = {
     getEmptyToy
 }
 
-function query(filter) {
-    return httpService.get(KEY, { params: filter })
+function query(filter = {}) {
+    var query = '?'
+    if (filter.searchWord) query += 'q=' + filter.searchWord + '&'
+    if (filter.sortBy) query += 's=' + filter.sortBy + '&'
+    if (filter.stockFilter) query += 'f=' + filter.stockFilter + '&'
+    return httpService.get(KEY + query, filter)
 }
 
 function getToyById(id) {
