@@ -7,15 +7,14 @@ export const userService = {
     remove,
     save,
     login,
+    signup,
+    logout,
     getUserById,
-    getEmptyUser
+    getEmptyUser,
+    getLoginUser
 }
 
 function query() {
-    // var query = '?'
-    // if (filter.searchWord) query += 'q=' + filter.searchWord + '&'
-    // if (filter.sortBy) query += 's=' + filter.sortBy + '&'
-    // if (filter.stockFilter) query += 'f=' + filter.stockFilter + '&'
     return httpService.get(KEY)
 }
 
@@ -42,6 +41,23 @@ function getEmptyUser(fullname, username, password, isAdmin = false) {
     }
 }
 
+function getLoginUser(username, password) {
+    return {
+        username,
+        password,
+    }
+}
+
 function login(user) {
-    // return httpService.get(KEY, user)
+    const loginUser = JSON.stringify(user)
+    return httpService.get(KEY + 'login/' + loginUser)
+}
+
+function signup(user) {
+    const signupUser = JSON.stringify(user)
+    return httpService.get(KEY + 'signup/' + signupUser)
+}
+
+function logout() {
+    return httpService.get(KEY + 'logout')
 }

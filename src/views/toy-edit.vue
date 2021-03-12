@@ -9,7 +9,7 @@
 
 <script>
 import { toyService } from "../services/toy.service.js";
-import validation from "../components/validation";
+import editValidation from "../components/edit-validation";
 import { Message } from "element-ui";
 
 export default {
@@ -41,7 +41,7 @@ export default {
     } else this.toyToEdit = toyService.getEmptyToy();
   },
   components: {
-    validation,
+    editValidation,
   },
 };
 </script>

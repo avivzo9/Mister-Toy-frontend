@@ -1,31 +1,23 @@
 <template>
   <section class="container">
     <div class="sub-container">
-      <h1>Admin control</h1>
-      <ul v-if="users">
-        <li v-for="user in users" :key="user._id">
-          Name: {{ user.fullname }}, Username: {{ user.username }}, Password:
-          {{ user.password }}
-          <!-- <button @click="sendDeleteUser(user._id)">Delete user</button> -->
-        </li>
-      </ul>
+      <userList :users="users" />
     </div>
   </section>
 </template>
 
 <script>
+import userList from "../components/user-list";
+
 export default {
   name: "adminCmp",
-  methods: {
-    sendDeleteUser(id) {
-      // userService.deleteUser(id)
-      //     .then(() => this.loadUsers())
+  computed: {
+    users() {
+      return this.$store.state.userStore.users;
     },
   },
-  computed: {
-      users() {
-          return this.$store.state.userStore.users;
-      }
+  components: {
+    userList,
   },
 };
 </script>

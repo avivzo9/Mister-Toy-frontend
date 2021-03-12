@@ -31,7 +31,9 @@ export default ({
         },
         setUser(state, { user }) {
             state.loggedInUser = user
-            console.log('state.loggedInUser:', state.loggedInUser)
+        },
+        logout(state) {
+            state.loggedInUser = null
         },
     },
     actions: {
@@ -60,11 +62,24 @@ export default ({
                 })
         },
         login({ commit }, { user }) {
-            userService.login(user)
+            return userService.login(user)
                 .then((user) => {
-                    console.log(user);
                     commit({ type: 'setUser', user })
+                    return user
                 })
+                .catch(err => console.log('Store: Cannot login user', err))
+        },
+        signup({ commit }, { user }) {
+            return userService.signup(user)
+                .then((user) => {
+                    commit({ type: 'addUser', user })
+                    return user;
+                })
+        },
+        logout({ commit }) {
+            return userService.logout()
+                .then((user) => console.log('logged out from store'))
+            commit({ type: 'logout' })
         }
     },
     modules: {}
