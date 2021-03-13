@@ -78,8 +78,9 @@ export default ({
         },
         logout({ commit }) {
             return userService.logout()
-                .then((user) => console.log('logged out from store'))
-            commit({ type: 'logout' })
+                .then(() => {
+                    commit({ type: 'logout' })
+                })
         }
     },
     modules: {}

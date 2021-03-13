@@ -7,20 +7,14 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faExpand } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faUserSecret)
-Vue.config.productionTip = false
-Vue.use(ElementUI);
+library.add(faExpand)
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
-
-
-
-
-
-
+Vue.use(ElementUI);
 Vue.use(VueGoogleMaps, {
     load: {
         key: 'AIzaSyCQFa_vY1zPZ2rm7lk95uqQ_m90I6aMnyA',

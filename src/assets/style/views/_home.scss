@@ -16,18 +16,18 @@
         width: 100%;
         gap: 1.5625rem;
         >* {
-            border: 1px solid $clr2;
             padding: 123px 0;
             cursor: pointer;
             font-size: 45px;
             text-align: center;
             justify-content: center;
             align-items: center;
-            background-color: black;
+            background-color: #C2C6B4;
             border-radius: 20px;
             font-weight: 600;
+            border: 1px solid black;
             &:hover {
-                filter: brightness(135%);
+                filter: brightness(85%);
             }
         }
          :first-child {

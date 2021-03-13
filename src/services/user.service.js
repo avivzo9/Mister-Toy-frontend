@@ -50,14 +50,14 @@ function getLoginUser(username, password) {
 
 function login(user) {
     const loginUser = JSON.stringify(user)
-    return httpService.get(KEY + 'login/' + loginUser)
+    return httpService.put(KEY + 'login/' + loginUser)
 }
 
 function signup(user) {
     const signupUser = JSON.stringify(user)
-    return httpService.get(KEY + 'signup/' + signupUser)
+    return httpService.post(KEY + 'signup/' + signupUser)
 }
 
 function logout() {
-    return httpService.get(KEY + 'logout')
+    return httpService.put(KEY + 'logout')
 }

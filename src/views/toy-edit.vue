@@ -2,7 +2,7 @@
   <section class="toy-edit-container container" v-if="toyToEdit">
     <div class="toy-edit sub-container">
       <h1>Toy edit</h1>
-      <validation @save-toy="saveToy" :toyToEdit="toyToEdit" />
+      <edit-validation @save-toy="saveToy" :toyToEdit="toyToEdit" />
     </div>
   </section>
 </template>
@@ -21,7 +21,6 @@ export default {
   },
   methods: {
     saveToy(toy) {
-      console.log("toy: from front", toy);
       this.$store.dispatch({ type: "saveToy", toy })
         .then(() => {
           Message.success("Toy has been saved!");

@@ -79,6 +79,7 @@
         </div>
       </div>
       <div class="logout sub-container" v-if="loggedInUser">
+        <h4>Loggedin as {{loggedinUserDisplay}}.</h4>
         <button @click="logout">Logout</button>
       </div>
     </ValidationObserver>
@@ -118,6 +119,7 @@ export default {
     },
     logout() {
       this.$emit("logout");
+      this.closeAll()
     },
     toLogin() {
       this.isLogin = true;
@@ -133,6 +135,11 @@ export default {
       this.isSignup = false;
       this.isLogin = false;
     },
+  },
+  computed: {
+    loggedinUserDisplay() {
+      return this.$store.state.userStore.loggedInUser.username
+    }
   },
 };
 </script>

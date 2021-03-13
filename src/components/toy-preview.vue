@@ -8,7 +8,7 @@
       <div class="toy-details-buttons flex">
         <router-link class="link font-size" :to="'/edit/' + toy._id">🖊</router-link>
         |
-        <router-link class="link" :to="'/toy/' + toy._id"><font-awesome-icon icon="user-secret" /></router-link>
+        <router-link class="link" :to="'/toy/' + toy._id"><font-awesome-icon icon="expand"></font-awesome-icon></router-link>
         |
         <button class="font-size" @click="sendRemove(toy._id)">🗑</button>
       </div>

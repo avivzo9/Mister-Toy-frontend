@@ -2,7 +2,7 @@
   <div id="app" class="app main-layout">
     <div class="nav-container container">
       <div class="nav sub-container">
-        <h1>Mister Toy</h1>
+        <router-link class="logo link" to="/">Mister Toy</router-link>
         <span class="menu">☰</span>
         <div class="nav-content">
           <router-link class="link" to="/">Home</router-link> |
