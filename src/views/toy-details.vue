@@ -13,19 +13,23 @@
           <p>{{ currToy.price }}</p>
         </div>
       </div>
-        <div class="flex">
-          <p :style="{ color: stockColor }">{{ stockDisplay }}!</p>
-          <router-link class="link" to="/toy">Back</router-link>
-        </div>
+      <div class="flex">
+        <p :style="{ color: stockColor }">{{ stockDisplay }}!</p>
+        <router-link class="link" to="/toy">Back</router-link>
+      </div>
+    </div>
+    <div class="sub-container">
+      <router-link class="link" :to="'/toy/chat/' + currToy._id">chat</router-link>
     </div>
   </section>
 </template>
 
 <script>
 import { toyService } from "../services/toy.service.js";
+import chat from "../components/chat";
 
 export default {
-  name: "edit-details",
+  name: "details",
   data() {
     return {
       currToy: null,
@@ -43,6 +47,9 @@ export default {
     stockColor() {
       return this.currToy.inStock ? "green" : "red";
     },
+  },
+  components: {
+    chat,
   },
 };
 </script>

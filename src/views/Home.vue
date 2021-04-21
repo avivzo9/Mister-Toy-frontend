@@ -1,11 +1,11 @@
 <template>
   <div class="home-container container">
-    <user-validation
+    <!-- <user-validation
       :loggedInUser="loggedInUser"
       @login="login"
       @signup="signup"
       @logout="logout"
-    />
+    /> -->
     <div class="sub-container" v-if="loggedInUser">
       <router-link
         v-if="loggedInUser.isAdmin"

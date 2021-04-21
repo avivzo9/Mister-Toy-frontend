@@ -28,7 +28,8 @@ async function ajax(endpoint, method = 'get', data = null) {
         const res = await axios({
             url: `${BASE_URL}${endpoint}`,
             method,
-            data
+            data,
+            params: (method === 'GET') ? data : null
         })
         return res.data
     } catch (err) {

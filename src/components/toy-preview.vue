@@ -24,7 +24,6 @@ export default {
       this.$emit("remove-toy", id);
     },
     sendToDetails(toy) {
-    console.log('toy:', toy)
     this.$router.push(`/toy/' + ${toy._id}`)
     }
   },

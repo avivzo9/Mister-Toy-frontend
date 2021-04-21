@@ -28,7 +28,7 @@ function remove(id) {
 }
 
 function save(toy) {
-    if (toy._id) return httpService.put(KEY, toy)
+    if (toy._id) return httpService.put(KEY + toy._id, toy)
     else return httpService.post(KEY, toy)
 }
 

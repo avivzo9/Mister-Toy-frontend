@@ -12,7 +12,6 @@ export default {
   props: ["user"],
   methods: {
     sendRemove(id) {
-      console.log('id:', id)
       this.$emit("remove-user", id);
     },
   },

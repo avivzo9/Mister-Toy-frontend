@@ -19,6 +19,7 @@
 
 <script>
 import userMsg from './components/user-msg'
+import {socketService} from "./services/socket.service.js";
 export default {
   name: "app",
   methods: {},
@@ -28,6 +29,7 @@ export default {
   created() {
     this.$store.dispatch({ type: "loadToys" });
     this.$store.dispatch({ type: "loadUsers" });
+    socketService.setup();
   },
 };
 </script>

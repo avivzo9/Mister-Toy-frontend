@@ -7,6 +7,7 @@ import toyEdit from '../views/toy-edit.vue';
 import toyDetails from '../views/toy-details.vue';
 import dashboard from '../views/toy-dashboard.vue';
 import admin from '../views/admin.vue';
+import chat from '../components/chat.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [{
         path: '/edit/:toyId',
         name: 'edit-toy',
         component: toyEdit
+    },
+    {
+        path: '/toy/chat/:toyId',
+        name: 'chat',
+        component: chat
     },
     {
         path: '/toy/:toyId',

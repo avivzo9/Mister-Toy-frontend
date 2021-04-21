@@ -43,7 +43,6 @@ export default ({
         },
         setFilter(state, { filter }) {
             state.filterBy = filter
-            console.log('state.filterBy:', state.filterBy)
         },
     },
     actions: {
